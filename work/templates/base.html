@@ -1,0 +1,36 @@
+{% load bootstrap3 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+      <title> InstaGlam</title>
+    {% endif %}
+
+    {% block styles %}
+        {% fontawesome_5_static %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    {% endblock %}
+    {{form.media}}
+</head>
+<body>
+    {% include "navbar.html" %}
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/base.js'%}"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+
+    
+</body>
+</html>
