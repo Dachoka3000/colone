@@ -12,6 +12,10 @@ class Project(models.Model):
     owner = models.ForeignKey(User,on_delete = models.CASCADE)
     date_added = models.DateTimeField(auto_now_add = True, null =True)
 
+    def no_of_ratings(self):
+        ratings = Rating.objects.filter(project=self)
+        return len(ratings)
+
     def __str__(self):
         return self.title
 
