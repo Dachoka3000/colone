@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.Http import Http404
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Profile,Project
+
 
 # Create your views here.
 def home(request):
@@ -16,6 +19,6 @@ def project(request):
 def projectdetail(request, project_id):
     try:
         project = Project.objects.get(id=project_id)
-    except DoesNotExist:
+    except ObjectDoesNotExist:
         raise Http404()
     return render(request,'projectdetail.html', {"project": project})
