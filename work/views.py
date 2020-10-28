@@ -3,6 +3,7 @@ from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Profile,Project
 from .forms import UploadProjectForm
+from .filters import ProjectFilter
 
 
 # Create your views here.
@@ -37,4 +38,11 @@ def uploadproject(request):
     else:
         form=UploadProjectForm()
     return render(request,'newproject.html',{"form":form})
+
+def filterproject(request):
+    if request is None:
+        return Project.objects.none()
+    filter_list = Project.objects.all()
+    project_filter = ProjectFilter(request.GET, queryset = filter_list)
+    return render(request,'searchproject.html',{"filter":project_filter})
 
