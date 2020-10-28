@@ -39,6 +39,11 @@ def uploadproject(request):
         form=UploadProjectForm()
     return render(request,'newproject.html',{"form":form})
 
+def viewprofile(request):
+    current_user = request.user
+    profile = Profile.objects.get(user = current_user)
+    return render(request, 'profile.html',{"current_user":current_user, "profile":profile})
+
 def addprofile(request):
     current_user = request.user
 
