@@ -16,6 +16,27 @@ class Project(models.Model):
         ratings = Rating.objects.filter(project=self)
         return len(ratings)
 
+    def score(self):
+        sumdesign = 0
+        sumusability = 0
+        sumcontent = 0
+        ratings = Rating.objects.filter(project=self)
+        if len(ratings)>0:
+            for rating in ratings:
+                sumdesign +=rating.design
+                meandesign = sumdesign/len(ratings)
+                sumusability +=rating.usability
+                meanusability = sumusability/ len(ratings)
+                sumcontent +=rating.content
+                meancontent = sumcontent/len(ratings)
+                total = meandesign+ meanusability+ meancontent
+                
+                return total/len(ratings)
+        else:
+            return 0
+
+
+
     def __str__(self):
         return self.title
 
