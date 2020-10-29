@@ -42,7 +42,8 @@ def uploadproject(request):
 def viewprofile(request):
     current_user = request.user
     profile = Profile.objects.filter(user = current_user)
-    return render(request, 'profile.html',{"current_user":current_user, "profile":profile})
+    projects = Project.objects.filter(owner = current_user)
+    return render(request, 'profile.html',{"current_user":current_user, "profile":profile, "projects":projects})
 
 def addprofile(request):
     current_user = request.user
