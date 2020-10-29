@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Profile,Project,Rating
-from .forms import UploadProjectForm,AddProfileForm
+from .forms import UploadProjectForm,AddProfileForm,AddRatingForm
 from .filters import ProjectFilter
 
 
@@ -41,7 +41,7 @@ def uploadproject(request):
 
 def viewprofile(request):
     current_user = request.user
-    profile = Profile.objects.get(user = current_user)
+    profile = Profile.objects.filter(user = current_user)
     return render(request, 'profile.html',{"current_user":current_user, "profile":profile})
 
 def addprofile(request):
@@ -64,6 +64,23 @@ def filterproject(request):
     filter_list = Project.objects.all()
     project_filter = ProjectFilter(request.GET, queryset = filter_list)
     return render(request,'searchproject.html',{"filter":project_filter})
+
+def addrating(request,project_id):
+    project = Project.objects.get(id = project_id)
+    current_user = request.user
+    form = AddRatingForm()
+    if request.method == 'POST':
+        if form.is_valid():
+            new_rating = form.save(commit=False)
+            new_rating.project = project
+            new_rating.human = current_user
+            new_rating.save()
+
+            return redirect('project')
+        else:
+            form = AddRatingForm()
+
+    return render(request, 'rating.html',{'form':form,'project':project,'current_user':current_user})
 
 def calcratings(request, project_id):
     primer = Project.objects.get(id=project_id)
