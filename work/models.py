@@ -31,7 +31,7 @@ class Project(models.Model):
                 meancontent = sumcontent/len(ratings)
                 total = meandesign+ meanusability+ meancontent
                 
-                return total/len(ratings)
+            return total/len(ratings)
         else:
             return 0
 
@@ -47,6 +47,9 @@ class Profile(models.Model):
     contact = models.TextField()
     user = models.OneToOneField(User, on_delete = models.CASCADE)
 
+    def save_profile(self):
+        self.save()
+
     def __str__(self):
         return self.user.username
 
@@ -54,6 +57,6 @@ class Rating(models.Model):
     design = models.IntegerField(validators =[MinValueValidator(0),MaxValueValidator(10)] )
     usability = models.IntegerField(validators =[MinValueValidator(0),MaxValueValidator(10)] )
     content = models.IntegerField(validators =[MinValueValidator(0),MaxValueValidator(10)] )
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='ratings')
     human = models.ForeignKey(User, on_delete=models.CASCADE)
     

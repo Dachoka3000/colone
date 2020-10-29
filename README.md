@@ -31,7 +31,7 @@ Open the webpage on your browser using the live link provided.
 * If you do not have a profile, click on the add one link and fill the form to add your profile
 * Once done, click on the logout tab to logout
 ## Contacts
-Feel free to contact me at machokadaisy25@gmail.com. For any contributions, please visit https://github.com/Dachoka/macclon.git
+Feel free to contact me at machokadaisy25@gmail.com. For any contributions, please visit https://github.com/MachokaDaisy/colone.git
 ## License
 [![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Copyright (c) 2020 **Machoka Daisy**

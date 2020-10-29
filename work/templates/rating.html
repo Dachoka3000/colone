@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>New Project</title>
+  <title>New Rating</title>
   {{form.media}}
 
 {% block styles %}
@@ -20,14 +20,15 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-header">
-                <h3>Add Your Project</h3>
+                <h3>Rate Project</h3>
+                <h5>Please note that the maximum rating you can give is 10, and the minimum is 1</h5>
             </div>
             <div class="panel-body">
-                <form  action="{%url 'uploadproject'%}" method="post" enctype="multipart/form-data">
+                <form  action="{%url 'addrating' project_id=project.id%}" method="post" >
                     {%csrf_token%}
                 
                     {% bootstrap_form form%}
-                    <input type="submit" class="btn btn-success btn-lg" value="Post">
+                    <input type="submit" class="btn btn-success btn-lg" value="Rate">
                 </form>
             </div>
         </div>

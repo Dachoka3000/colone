@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title%} Your Profile{% endblock %}
+
+{% block content %}
+{% if current_user.profile %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-header">
+                    <h3>{{current_user.username}}</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="{{user.profile.pic.url}}" alt="profile photo" class="img-responsive"><br>
+                    {% autoescape on %}
+                    <h5>{{user.profile.bio | safe}}</h5>
+                    {% endautoescape%}
+                </div>
+                <div class="panel-footer">
+                    <h6>{{user.profile.contact}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <h1>Hello {{current_user.username}}</h1>
+        <h1>You don't have a profile yet. <span><a href="{% url 'addprofile'%}">Add one</a></span></h1>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

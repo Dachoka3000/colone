@@ -3,29 +3,37 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        {% if projects %}
-            {% for project in projects %}
+        <div class="col-md-8">
+            <form method="get">
+                {{ filter.form.as_p }}
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        {% if filter.qs %}
+        <h2>Found {{filter.qs|length}} projects from your search </h2>
+        {% for project in filter.qs %}
             <div class="col-md-4 col-lg-4">
                 <div class="card">
                     <div class="card-header"><h3>{{project.title}}</h3></div>
                     <div class="card-body">
-                        <img src="{{project.image.url}}" alt="landing page" style="height: 300px;width: 300px;" class="img-fluid img-rounded">
+                        <img src="{{project.image.url}}" style="height: 300px;width: 300px;" alt="landing page">
                     </div>
                     <div class="card-footer">
-                        <h4> <a href="{{project.link}}">Live link: {{project.link}}</a> </h4>
+                        <h4>Live link: {{project.link}}</h4>
                         <button class="btn btn-primary"><a href="{% url 'projectdetail' project_id=project.id%}" style="color: white;">View Details</a></button>
                         <button class="btn btn-primary"><a href="{% url 'addrating' project_id=project.id%}" style="color: white;">Rate</a></button>
                     </div>
                 </div>
             </div>
 
-            {% endfor %}
+        {% endfor %}
         {% else %}
-            <h2 class="text-center">Ooops! There are no projects to display yet.</h2>
-            <h4 class="text-center"><a href="#">Add a project</a></h4>
-
+            <h3>Found 0 projects from your search</h3>
         {% endif %}
     </div>
 </div>
+
 
 {% endblock %}

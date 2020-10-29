@@ -75,7 +75,6 @@ def addrating(request,project_id):
             new_rating.project = project
             new_rating.human = current_user
             new_rating.save()
-
             return redirect('project')
         else:
             form = AddRatingForm()
