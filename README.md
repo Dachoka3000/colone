@@ -22,12 +22,14 @@ This is  a web application for rating and reviewing projects. Users can create a
 
 ## BDD
 Open the webpage on your browser using the live link provided. 
-* Sign up for an account by clicking on the signup tab in the navbar and filling the form. Once complete, you will be logged into your account
+* Sign up for an account by clicking on the signup tab in the navbar and filling the form. Once complete, you will be logged into your account and your name will be displayed on the navbar.
 * On the view projects page,click on view details button and you will be redirected to a new page displaying more information about that project
 * Click the rate button and fill the form to add a rating about a project. 
 * Click on the View Projects tab in the navbar to view projects from different users.
 * Click on the Search Projects tab to search for projects
 * Once logged in, click on your profile tab which has your name on it. On the resulting dropdown menu, click view profile to see your profile
+* ![Alt text](/static/img/prof.png?raw=true "Optional Title")
+
 * If you do not have a profile, click on the add one link and fill the form to add your profile
 * Once done, click on the logout tab to logout
 ## Contacts
