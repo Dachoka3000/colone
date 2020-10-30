@@ -35,6 +35,12 @@ class Project(models.Model):
         else:
             return 0
 
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
 
 
     def __str__(self):
@@ -50,6 +56,9 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
+    def delete_profile(self):
+        self.delete()
+
     def __str__(self):
         return self.user.username
 
@@ -59,4 +68,10 @@ class Rating(models.Model):
     content = models.IntegerField(validators =[MinValueValidator(0),MaxValueValidator(10)] )
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='ratings')
     human = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def save_rating(self):
+        self.save()
+
+    def delete_rating(self):
+        self.delete()
     

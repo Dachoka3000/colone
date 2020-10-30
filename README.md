@@ -28,7 +28,7 @@ Open the webpage on your browser using the live link provided.
 * Click on the View Projects tab in the navbar to view projects from different users.
 * Click on the Search Projects tab to search for projects
 * Once logged in, click on your profile tab which has your name on it. On the resulting dropdown menu, click view profile to see your profile
-* ![Alt text](/static/img/prof.png?raw=true "Optional Title")
+* ![Alt text](./static/img/prof.png?raw=true "Optional Title")
 
 * If you do not have a profile, click on the add one link and fill the form to add your profile
 * Once done, click on the logout tab to logout

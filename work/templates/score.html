@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img src="{{primer.image.url}}" alt="pic" class="img-fluid img-rounded" style="height: 300px;width: 300px;">
+                {% if ratings %}
+                <h1>The Scores Are In</h1>
+                <ul>
+                    <li>Score: {{score}}</li>
+                    <li>Average Design Score: {{meandesign}}</li>
+                </ul>
+                {% else %}
+                <h1>This project has not yet been rated</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

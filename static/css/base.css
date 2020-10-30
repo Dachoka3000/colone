@@ -1,3 +1,30 @@
 h3 {
     color: #ff006e;
 }
+.welcome {
+    background-image: url(../img/laurel.png);
+    height: 60vh;
+    width: 100%;
+    background-size: cover;
+}
+.jumbotron {
+    background-color: transparent;
+}
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 15px;
+    background-color: #FAFAFA;
+}
+.panel panel-default {
+    padding: 10px;
+}
+#anim {
+    padding: 10px 20px;
+    position: relative;
+    animation-name: shake;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}

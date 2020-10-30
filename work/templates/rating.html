@@ -17,14 +17,15 @@
 </head>
 
 <body>
+    {% include 'navbar.html' %}
     <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-header">
+        <div class="panel panel-default" style="padding: 10px;">
+            <div class="panel-heading">
                 <h3>Rate Project</h3>
                 <h5>Please note that the maximum rating you can give is 10, and the minimum is 1</h5>
             </div>
             <div class="panel-body">
-                <form  action="{%url 'addrating' project_id=project.id%}" method="post" >
+                <form  action="{% url 'addrating' project_id=project.id%}" method="POST" enctype="multipart/form-data">
                     {%csrf_token%}
                 
                     {% bootstrap_form form%}

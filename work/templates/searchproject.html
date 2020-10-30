@@ -21,7 +21,7 @@
                         <img src="{{project.image.url}}" style="height: 300px;width: 300px;" alt="landing page">
                     </div>
                     <div class="card-footer">
-                        <h4>Live link: {{project.link}}</h4>
+                        <h4> <a href="{{project.link}}">Live link: {{project.link}}</a> </h4>
                         <button class="btn btn-primary"><a href="{% url 'projectdetail' project_id=project.id%}" style="color: white;">View Details</a></button>
                         <button class="btn btn-primary"><a href="{% url 'addrating' project_id=project.id%}" style="color: white;">Rate</a></button>
                     </div>

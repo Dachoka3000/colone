@@ -12,7 +12,7 @@ class ProfileTestCase(TestCase):
         User = get_user_model()
         self.daisy = User(username = "daisy", email="daisy@email.com", password = "mypassword")
         self.daisy.save()
-        self.profile = Profile(pic = 'images/img.jpg',bio="love life",contact="daisy@email.com",user=self.daisy)
+        self.profile = Profile(bio="love life",contact="daisy@email.com",user=self.daisy)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.profile, Profile))
@@ -24,9 +24,9 @@ class ProfileTestCase(TestCase):
 
     def test_update_method(self):
         self.profile.save_profile()
-        self.profile = Profile.objects.filter(pic = 'images/img.jpg').update(pic = 'images/photo.jpg')
+        self.profile = Profile.objects.filter(contact = 'daisy@email.com').update(contact = 'maisy@email.com')
         self.profile_update = Profile.objects.get(bio="love life")
-        self.assertTrue(self.profile_update.pic== 'images/photo.jpg')
+        self.assertTrue(self.profile_update.contact== 'maisy@email.com')
 
     def test_delete_method(self):
         self.profile.save_profile()
@@ -44,7 +44,7 @@ class ProjectTestCase(TestCase):
         User = get_user_model()
         self.machoka = User(username = "machoka",email="machoka@email.com",password="password")
         self.machoka.save()
-        self.project = Project(title="Instaclone", image="photos/pic.jpg", description="Instagram clone", link="http://insta.heroku.com",owner=self.machoka)
+        self.project = Project(title="Instaclone", description="Instagram clone", link="http://insta.heroku.com",owner=self.machoka)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.project,Project))
@@ -70,7 +70,7 @@ class RatingTestCase(TestCase):
         User = get_user_model()
         self.mary = User(username = "mary",email="mary@email.com",password="password")
         self.mary.save()
-        self.sample = Project(title="Akan", image="photos/dpic.jpg", description="akan names", link="http://akan.heroku.com",owner=self.mary)
+        self.sample = Project(title="Akan", description="akan names", link="http://akan.heroku.com",owner=self.mary)
         self.sample.save()
         self.rating=Rating(design=1,usability=4,content=6,project=self.sample,human=self.mary)
 

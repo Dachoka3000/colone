@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="container-fluid">
+    <div class="welcome">
+        <div class="jumbotron">
+            <h1 class="text-center" style="background-color: transparent; color: #ff006e;">Awwardie</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sneakpeek justify-content-center">
+            <h3>SneakPeek</h3>
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+            <button id="anim" class="btn btn-success"><a href="{% url 'project'%}" style="color: white;">View More</a></button>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
