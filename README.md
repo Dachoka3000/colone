@@ -26,7 +26,10 @@ Open the webpage on your browser using the live link provided.
 * On the view projects page,click on view details button and you will be redirected to a new page displaying more information about that project
 * Click the rate button and fill the form to add a rating about a project. 
 * Click on the View Projects tab in the navbar to view projects from different users.
+* ![Alt text](./static/img/explore.png?raw=true "Optional Title")
 * Click on the Search Projects tab to search for projects
+* ![Alt text](./static/img/search.png?raw=true "Optional Title")
+
 * Once logged in, click on your profile tab which has your name on it. On the resulting dropdown menu, click view profile to see your profile
 * ![Alt text](./static/img/prof.png?raw=true "Optional Title")
 
