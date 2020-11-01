@@ -16,6 +16,42 @@ class Project(models.Model):
         ratings = Rating.objects.filter(project=self)
         return len(ratings)
 
+    def designer(self):
+        total = 0
+        ratings = Rating.objects.filter(project=self)
+        if len(ratings)>0:
+            for rating in ratings:
+                total += rating.design
+                meandesignscore=total/len(ratings)
+            return meandesignscore
+
+        else:
+            return 0
+
+    def usable(self):
+        total = 0
+        ratings = Rating.objects.filter(project=self)
+        if len(ratings)>0:
+            for rating in ratings:
+                total += rating.usability
+                meanusabilityscore=total/len(ratings)
+            return meanusabilityscore
+
+        else:
+            return 0
+
+    def contenter(self):
+        total = 0
+        ratings = Rating.objects.filter(project=self)
+        if len(ratings)>0:
+            for rating in ratings:
+                total += rating.content
+                meancontentscore=total/len(ratings)
+            return meancontentscore
+
+        else:
+            return 0
+
     def score(self):
         sumdesign = 0
         sumusability = 0
@@ -31,7 +67,7 @@ class Project(models.Model):
                 meancontent = sumcontent/len(ratings)
                 total = meandesign+ meanusability+ meancontent
                 
-            return total/len(ratings)
+            return total/3
         else:
             return 0
 

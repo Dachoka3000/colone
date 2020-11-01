@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'tinymce',
+    'crispy_forms',
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
@@ -180,6 +181,9 @@ CLOUDINARY_STORAGE = {
     'API_KEY': config('CLOUD_API_KEY'),
     'API_SECRET': config('CLOUD_API_SECRET'),
 }
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
 
 
 # Static files (CSS, JavaScript, Images)

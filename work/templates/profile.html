@@ -47,6 +47,8 @@
                         <h4> <a href="{{project.link}}">Live link: {{project.link}}</a> </h4>
                         <button class="btn btn-primary"><a href="{% url 'projectdetail' project_id=project.id%}" style="color: white;">View Details</a></button>
                         <button class="btn btn-primary"><a href="{% url 'addrating' project_id=project.id%}" style="color: white;">Rate</a></button>
+                        <button class="btn btn-primary"><a href="{% url 'calcratings' project_id=project.id%}" style="color: white;">View Score</a></button>
+
                     </div>
                 </div>
             </div>

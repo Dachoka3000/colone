@@ -103,25 +103,13 @@ def addrating(request,project_id):
 def calcratings(request, project_id):
     primer = Project.objects.get(id=project_id)
     ratings = Rating.objects.filter(project=primer)
-    sumdesign = 0
-    sumusability = 0
-    sumcontent = 0
-    if len(ratings)>0:
-        for rating in ratings:
-            sumdesign +=rating.design
-            meandesign = sumdesign/len(ratings)
-            sumusability +=rating.usability
-            meanusability = sumusability/ len(ratings)
-            sumcontent +=rating.content
-            meancontent = sumcontent/len(ratings)
-            total = meandesign+ meanusability+ meancontent
-            score = total/len(ratings)
-        return {"score":score, "meandesign":meandesign,"meanusability":meanusability,"meancontent":meancontent,"primer":primer,"ratings":ratings}
-    else:
-        score = 0
-        messa
-        return score
-    return render(request,'score.html')
+    proscore = Project.score(project_id)
+    designscore = Project.designer(project_id)
+    usabilityscore = Project.usable(project_id)
+    contentscore = Project.contenter(project_id)
+
+    
+    return render(request,'score.html', {"primer":primer,"ratings":ratings,"proscore":proscore, "designscore":designscore,"usabilityscore":usabilityscore,"contentscore":contentscore})
 
 
 class ProjectList(APIView):

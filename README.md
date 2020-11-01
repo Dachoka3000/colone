@@ -28,8 +28,9 @@ Open the webpage on your browser using the live link provided.
 * Click on the View Projects tab in the navbar to view projects from different users.
 * ![Alt text](./static/img/explore.png?raw=true "Optional Title")
 * Click on the Search Projects tab to search for projects
-* ![Alt text](./static/img/search.png?raw=true "Optional Title")
-
+* ![Alt text](./static/img/searchpizza.png?raw=true "Optional Title")
+* Click on the View Score button to see the average scores that a project has
+* ![Alt text](./static/img/score.png?raw=true "Optional Title")
 * Once logged in, click on your profile tab which has your name on it. On the resulting dropdown menu, click view profile to see your profile
 * ![Alt text](./static/img/prof.png?raw=true "Optional Title")
 
